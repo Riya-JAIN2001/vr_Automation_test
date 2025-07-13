@@ -1,94 +1,114 @@
-# CryptoDashe
+🚀 Crypto Dashboard
+A full-stack MERN application that fetches crypto market data from CoinGecko, stores historical snapshots, and displays data beautifully with React and Tailwind CSS.
 
-## 🖥️ Live Demo
+💻 Tech Stack
+Frontend:
 
-👉 https://dashecrypte.netlify.app/
+React (Vite)
 
-## About
+Tailwind CSS
 
-CryptoDashe: a cryptocurrency dashboard that offers portfolio tracking with support for over 10,000 tokens. Powered by CoinGecko & TradingView.
+Axios
 
-Built using the MERN stack.
+React Router DOM
 
-## Features
+Backend:
 
-- **Portfolio Tracking**: Monitor your crypto investments
-- **Real-time Data**: Up-to-date information on over 10,000 cryptocurrencies
-- **Interactive Charts**: Powered by TradingView to help you view your portfolio performance
-- **Global Market Information**: Integrated Fear and Greed Index + Global Crypto Market Cap Tracker for a general market insight
-- **User-friendly Interface**: Intuitive design for seamless navigation and use
-- **Light & Dark Mode**: You decide the look and feel of your Dashboard
+Node.js
 
-## Installation Instructions
+Express.js
 
-### Prerequisites
+Mongoose (MongoDB)
 
-- Node.js (v14+ recommended)
-- MongoDB
-- npm or yarn
+Node-Cron
 
-### Installation
+dotenv
 
-1. Clone the repository
-2. Install dependencies:
+cors
 
-- cd cryptodashe
-- npm install
+Database:
 
-3. Set up environment variables (create a .env file in the root directory)
+MongoDB (Atlas or local)
 
-#### Frontend (.env file in /client directory)
+⚙️ Setup & Installation
+1. Clone the repo
+bash
+Copy
+Edit
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+2. Backend Setup
+bash
+Copy
+Edit
+cd backend
+npm install
+Create a .env file in the backend folder:
 
-- VITE_API_BASE_URL = URL of Backend API
+ini
+Copy
+Edit
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+Start the backend:
 
-#### Backend (.env file in /server directory)
+bash
+Copy
+Edit
+npm start
+3. Frontend Setup
+bash
+Copy
+Edit
+cd frontend
+npm install
+npm run dev
+The frontend will run locally (usually at http://localhost:5173).
 
-- MONGO_URI= MongoDB URI Connection String
-- JWT_ACCESS_SECRET= Your Access Token Secret
-- JWT_REFRESH_SECRET= Your Refresh Token Secret
-- COINGECKO_API_KEY= Your CoinGecko API Key
-- EMAIL_USER= Email Address for Notifications
-- EMAIL_PASS= Email App-Specific Password
-- BUCKET_NAME= S3 Bucket Name
-- BUCKET_REGION= S3 Bucket Region
-- AWS_ACCESS_KEY_ID= AWS Access Key ID
-- AWS_SECRET_ACCESS_KEY= AWS Secret Access Key
-- ORIGIN_URL= URL of Frontend
+⏰ How the Cron Job Works
+Scheduled to run every 30 minutes using node-cron.
 
-4. Start the development server
+Fetches the top 10 crypto coins from the CoinGecko API.
 
-Navigate to the /client directory and run:
+Saves the fetched data into the History collection in MongoDB (instead of updating the Coins collection).
 
-- npm run dev
+Data stored includes:
 
-Navigate to the /api directory and run:
+coinId
 
-- npm run dev
+name
 
-## App Overview
+image
 
-### Homepage
+price
 
-![cryptodashe homepage](./public/desktop-final-1.png)
+marketCap
 
-### Coin Holding
+change24h
 
-![cryptodashe coin holding panel](./public/desktop-final-2.png)
+lastUpdated
 
-### Explore
+snapshotTime
 
-![cryptodashe explore page](./public/desktop-final-3.png)
+This enables tracking and analysis of historical crypto trends over time.
 
-### Insights
+🌐 Deployed Links
+Frontend (Vercel): Crypto Dashboard Frontend
 
-![cryptodashe insights page](./public/desktop-final-4.png)
+Backend : https://vr-backend-kyc2.onrender.com
 
-## Credits
+API Example
+bash
+Copy
+Edit
+GET /api/history
+Returns all snapshots of crypto market data.
 
-- All coin data is retrieved from the CoinGecko API:
-  https://www.coingecko.com/en/api
-- Fear and Greed Index Image:
-  https://alternative.me/crypto/fear-and-greed-index/#api
-- Charts:
-  TradingView Lightweight Charts™
-  Copyright (с) 2023 TradingView, Inc. https://www.tradingview.com/
+Tailwind CSS
+This project uses Tailwind CSS for styling. Configuration is in:
+
+bash
+Copy
+Edit
+frontend/tailwind.config.js
+frontend/src/index.css
