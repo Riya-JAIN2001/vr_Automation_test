@@ -35,7 +35,7 @@ MongoDB (Atlas or local)
 bash
 Copy
 Edit
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Riya-JAIN2001/vr_Automation_test.git
 cd your-repo
 2. Backend Setup
 bash
@@ -93,7 +93,7 @@ snapshotTime
 This enables tracking and analysis of historical crypto trends over time.
 
 🌐 Deployed Links
-Frontend (Vercel): Crypto Dashboard Frontend
+Frontend : https://vr-automation-frontend.vercel.app/
 
 Backend : https://vr-backend-kyc2.onrender.com
 
